@@ -11,6 +11,7 @@ import { BasePageComponent } from './partials/base-page/base-page.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { AdoptComponent } from './pages/adopt/adopt.component';
 import { AboutanimalsComponent } from './pages/aboutanimals/aboutanimals.component';
+import { ModelModule } from './model/model.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AboutanimalsComponent } from './pages/aboutanimals/aboutanimals.compone
     AboutanimalsComponent,
   ],
   imports: [
+    ModelModule,
     BrowserModule,
     AppRoutingModule
   ],
