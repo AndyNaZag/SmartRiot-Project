@@ -12,6 +12,12 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { AdoptComponent } from './pages/adopt/adopt.component';
 import { AboutanimalsComponent } from './pages/aboutanimals/aboutanimals.component';
 import { ModelModule } from './model/model.module';
+import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
+
+export function jwtTokenGetter(): string
+{
+  return localStorage.getItem('id_token')!;
+}
 
 @NgModule({
   declarations: [
@@ -28,7 +34,13 @@ import { ModelModule } from './model/model.module';
   imports: [
     ModelModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: jwtTokenGetter
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
