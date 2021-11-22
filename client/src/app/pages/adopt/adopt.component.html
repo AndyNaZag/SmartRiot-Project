@@ -3,16 +3,25 @@
         <div class="col-3 p-2"><button class="btn btn-block btn-outline-primary" (click)="changeCategory()">Home</button><button *ngFor="let cat of categories" class="btn btn-outline-primary btn-block" [class.active]="cat == selectedCategory" (click)="changeCategory(cat)">{{ cat }}</button></div>
         <div class="col-9 p-2">
             <!-- Books -->
+
+            <button class="btn btn-success btn-sm float-right" (click)='AddPet()'>Add Pet</button>
             <div class="col-9 p-2">
                 <div *ngFor='let pet of pets' class="card m-1 p-1 bg-light">
                     <h4>
                         {{ pet.name }}
                         <span class="badge badge-pill badge-primary float-right">
-                           Age: {{ pet.age }}
+                            Age: {{ pet.age }}
                         </span>
                     </h4>
                     <div class="card-text bg-white p-1">{{ pet.description }}
                     </div>
+                    <button class="btn btn-success btn-sm float-right" (click)='EditPetInfo(pet._id)'>
+                        Edit
+                    </button>
+                    <p></p>
+                    <button class="btn btn-danger btn-sm float-right" (click)='DeletePetInfo(pet._id)'>
+                        Delete
+                    </button>
                 </div>
 
 

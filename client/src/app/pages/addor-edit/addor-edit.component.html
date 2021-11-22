@@ -1,0 +1,32 @@
+<div class="bg-primary p-2 text-white" [class.bg-warning]='editing' [class.text-dark]='editing'>
+    <h5>{{ editing ? 'Edit' : 'Add'}} Pet</h5>
+</div>
+<form novalidate #form='ngForm' (ngSubmit)='save(form)'>
+
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]='pet.name'>
+    </div>
+
+    <div class="form-group">
+        <label>Category</label>
+        <input type="text" class="form-control" name="author" [(ngModel)]='pet.category'>
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" name="description" [(ngModel)]='pet.description'>
+    </div>
+
+    <div class="form-group">
+        <label>Age</label>
+        <input type="text" class="form-control" name="price" [(ngModel)]='pet.age'>
+    </div>
+
+    <button type='submit' class="btn btn-primary m-1" [class.btn-warning]='editing'>
+    <i class="{{editing ? 'fas fa-save' : 'fas fa-plus-circle' }}"></i> {{ editing ? "Save" : "Add" }}
+  </button>
+    <button type='reset' class="btn btn-secondary" routerLink='/adopt'>
+    <i class="fas fa-undo"></i> Cancel
+  </button>
+</form>
