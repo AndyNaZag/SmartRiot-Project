@@ -13,8 +13,6 @@ import { AdoptComponent } from './pages/adopt/adopt.component';
 import { AboutanimalsComponent } from './pages/aboutanimals/aboutanimals.component';
 import { ModelModule } from './model/model.module';
 import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
-import { FormsModule } from '@angular/forms';
-import { AddorEditComponent } from './pages/addor-edit/addor-edit.component';
 
 export function jwtTokenGetter(): string
 {
@@ -32,13 +30,11 @@ export function jwtTokenGetter(): string
     AboutUsComponent,
     AdoptComponent,
     AboutanimalsComponent,
-    AddorEditComponent,
   ],
   imports: [
     ModelModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
 
     JwtModule.forRoot({
       config: {
