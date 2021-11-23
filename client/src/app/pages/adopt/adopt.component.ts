@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pet } from 'src/app/model/pet.model';
-import { PetInfo } from 'src/app/model/petdetails.model';
 import { PetRepository } from 'src/app/model/pet.repository';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adopt',
@@ -13,9 +11,7 @@ import { Router } from '@angular/router';
 export class AdoptComponent implements OnInit {
   public selectedCategory = null;
   title!: string;
-
-  constructor(private route: ActivatedRoute, private repository: PetRepository, private router: Router, private petinfo: PetInfo) {
-   }
+  constructor(private route: ActivatedRoute, private repository: PetRepository) { }
 
   ngOnInit(): void {
     this.title = this.route.snapshot.data['title'];
@@ -31,27 +27,5 @@ export class AdoptComponent implements OnInit {
 
   changeCategory(newCategory?: string): void {
     this.selectedCategory = newCategory as any;
-  }
-
-  AddPet():void {
-    this.router.navigateByUrl('adopt/add');
-  }
-
-  EditPetInfo(id: number): void
-  {
-    this.router.navigateByUrl('adopt/edit/' + id);
-  }
-
-  DeletePetInfo(id: number): void{
-    
-    if (confirm('Are you sure?') && (id !== undefined))
-    {
-      this.repository.deletePet(id);
-    }
-    else
-    {
-      window.location.reload(); // refresh fix
-      this.router.navigateByUrl('/adopt');
-    }
   }
 }
