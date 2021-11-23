@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;900&display=swap');
+
+
+.foot-container{
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    background-color: #9856A0;
+    height: 60px;    
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+
+.txt3{
+    font-weight: lighter;
+    font-size: 20px;    
+    text-align: center;
+}

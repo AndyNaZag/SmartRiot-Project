@@ -1,43 +1,167 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;900&display=swap');
 
-.maincontainer{        
-        width: 100vw;
-        height: 100vh;
-        background: #FFF6DF;
-    }    
-
-.t1{
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 86px;    
-    text-align: right;
-    color: #67F5D6;   
-    
+* {
+  margin: 0; 
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.bloque{
-    margin-top: 7%;
-    margin-bottom: 10%;
-    margin-left: 15%;
-    justify-content: space-around;
+html {
+  scroll-behavior: smooth;
 }
 
-.mainbtn{
-    background-color: #67F5D6;
-    color:  #5B5B5B;
-    border-color: transparent;
-    margin-bottom: 8%;    
+body {
+  font-family: 'Roboto', sans-serif;
 }
 
-.bloque2{
+.cover {
+  background-size: 100vw;
+  height: 100vh;
+  background-image: url(../../../assets/images/amordeperro.jpg);
+  max-width: 100%;
+  background-repeat: no-repeat;
+}
+
+/* MAIN SECTION */
+
+.main {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.content-info {
+  margin-top: 10em;   
+  text-align: right;
+  margin-right: 2em;
+}
+.content-info .t1{
+    color: #67F5D6;
+    font-weight: bold;  
+    font-size: 90px;      
+}
+.content-info .paragraph{
+    color: #fff;
+    font-size: 28;    
+}
+.button-content{
+    margin-top: 1.5em;
+}
+
+a {    
+  cursor: pointer;
+  color: #5B5B5B;
+  box-shadow: 0px 3px 14px -8px rgba(0,0,0,0.78);
+}
+a:hover {
+  box-shadow: none;
+  background-color: #59d3b9;
+  color: #5B5B5B;
+  text-decoration: none;
+}
+
+.btn-start{
+  background-color: #67F5D6;  
+  padding: 8px 40px;
+  font-size: 1.2em;
+  border-radius: 20px;
+  border: none;
+}
+
+.read-more {
+  background: none;
+  border: 1px solid #fff;
+  margin: 20px;
+}
+
+.espacio{
+    height: 100px;
+    width: 100vw;
     justify-content: center;
-    display: flex;
+    text-align: center;
 }
 
-.cards{
-    width: 20vmax;
-    height: 25vmax;
+/* PETS */
+.pets .t1{
+    color: #9856A0;
+    font-weight: bold;  
+    font-size: 90px;   
+    text-align: center;  
 }
-    
-    
+.pets .divider {
+    color: #9856A0;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 1em;
+  }
+.container-pets{
+    margin: 50px 80px;
+}
+.txt2{
+    color: #5B5B5B;
+    font-size: 14; 
+    text-align: center;  
+    margin-bottom: 3em; 
+}
+
+.card-container {
+    display:inline-block;
+    position:relative;    
+    border-radius: 1rem;    
+}
+  .card-container img{        
+    width: 350px;
+    height: 350px;    
+    border-radius: 1rem;   
+}
+  .txt-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 350px;
+  }
+  .t2{
+    color: #67F5D6;
+    font-weight: bold;  
+    font-size: 60px; 
+    align-self: center;     
+}  
+  .card-container > div {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:-1;
+    padding:10px;
+    margin:0;
+  }  
+  .desvanecer:hover {
+    opacity: 0.07;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    -ms-transition: opacity 500ms;
+    transition: opacity 500ms;
+  }
+
+.pets .container-pets {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/*Last*/
+
+.last{
+  display: flex;  
+  justify-content: center;
+  align-items:center;
+}
+
+.last .divider {
+  color: #67F5D6;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 2em;
+  
+}
