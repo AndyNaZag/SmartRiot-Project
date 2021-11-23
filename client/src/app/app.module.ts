@@ -11,6 +11,15 @@ import { BasePageComponent } from './partials/base-page/base-page.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { AdoptComponent } from './pages/adopt/adopt.component';
 import { AboutanimalsComponent } from './pages/aboutanimals/aboutanimals.component';
+import { ModelModule } from './model/model.module';
+import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
+import { FormsModule } from '@angular/forms';
+import { AddorEditComponent } from './pages/addor-edit/addor-edit.component';
+
+export function jwtTokenGetter(): string
+{
+  return localStorage.getItem('id_token')!;
+}
 
 @NgModule({
   declarations: [
@@ -23,10 +32,19 @@ import { AboutanimalsComponent } from './pages/aboutanimals/aboutanimals.compone
     AboutUsComponent,
     AdoptComponent,
     AboutanimalsComponent,
+    AddorEditComponent,
   ],
   imports: [
+    ModelModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: jwtTokenGetter
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
