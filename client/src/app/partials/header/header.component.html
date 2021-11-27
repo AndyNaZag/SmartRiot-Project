@@ -15,7 +15,8 @@
         <!--navigation bar with logo and other pages link buttons-->
         <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/"> <img src="../../../assets/images/Logo.png" alt="Logo" width="30px"> Smart Riots</a>
+                <a class="navbar-brand" href="/"> <img src="../../../assets/images/Logo.png" alt="Logo" width="30px">
+                    Smart Riots</a>
                 <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
 
@@ -34,6 +35,25 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/aboutus">About Us</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        <!--
+                        <li *ngIf='isLoggedIn()' class="nav-item ml-5 " [routerLinkActive]="['active']">
+                            <a class="nav-link text-warning" routerLink="/admin/main"><i
+                                    class="fas fa-lg fa-user-shield"></i> Admin </a>
+                        </li>
+                        <li *ngIf='isLoggedIn()' class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline">
+                            <i class="fas fa-lg fa-user"></i> Welcome, {{ user.displayName }}
+                        </li>
+                        <li *ngIf='isLoggedIn()' class="nav-item">
+                            <a (click)='onLogoutClick()' routerLink='/logout' class="nav-link" href="/login">
+                                <i class="fas fa-lg fa-sign-out-alt"></i> Logout </a>
+                        </li>
+                        <li *ngIf='!isLoggedIn()' class="nav-item">
+                            <a class="nav-link" routerLink="/login"><i class="fas fa-lg fa-sign-in-alt"></i> Login </a>
+                        </li>
+                        -->
                     </ul>
                 </div>
             </div>

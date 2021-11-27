@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const APP_SECRET = "myappsecret";
 const USERNAME = "admin";
-const PASSWORD = "secret";
+const PASSWORD = "123456";
 const mappings = {
     get: ["/api/favorites", "/favorites"],
     post: ["/api/pets", "/pets", "/api/categories", "/categories"]

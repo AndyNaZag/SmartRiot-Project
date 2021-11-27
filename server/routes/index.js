@@ -9,5 +9,6 @@ router.get('/adopt', indexController.displayPetList);
 router.post('/add', indexController.processAddPet);
 router.post('/edit/:id', indexController.processEditPet);
 router.get('/delete/:id', indexController.performDelete);
+router.post('/login', indexController.processLoginPage);
 
 module.exports = router;

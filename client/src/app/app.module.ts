@@ -15,6 +15,7 @@ import { ModelModule } from './model/model.module';
 import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
 import { FormsModule } from '@angular/forms';
 import { AddorEditComponent } from './pages/addor-edit/addor-edit.component';
+//import { AuthComponent } from './admin/auth/auth.component';
 
 export function jwtTokenGetter(): string
 {
@@ -33,6 +34,7 @@ export function jwtTokenGetter(): string
     AdoptComponent,
     AboutanimalsComponent,
     AddorEditComponent,
+    //AuthComponent,
   ],
   imports: [
     ModelModule,
