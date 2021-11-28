@@ -30,12 +30,12 @@ export class RestDataSource {
   }
 
   authenticate(user: User): Observable<any>
-  {
+  {console.log(user);
     return this.http.post<any>(this.baseUrl + 'login', user, this.httpOptions);
   }
 
   storeUserData(token: any, user: User): void
-  {
+  { console.log(user);
     localStorage.setItem('id_token', 'Bearer ' + token);
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;

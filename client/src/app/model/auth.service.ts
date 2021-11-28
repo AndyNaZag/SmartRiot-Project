@@ -16,17 +16,17 @@ export class AuthService
   }
 
   authenticate(user: User): Observable<any>
-  {
+  { console.log(user.username);
     return this.datasource.authenticate(user);
   }
 
   storeUserData(token: any, user: User): void
-  {
+  {//console.log(user.username);
     this.datasource.storeUserData(token, user);
   }
 
   get authenticated(): boolean
-  {
+  { 
     return this.datasource.loggedIn();
   }
 

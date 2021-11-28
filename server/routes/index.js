@@ -10,5 +10,5 @@ router.post('/add', indexController.processAddPet);
 router.post('/edit/:id', indexController.processEditPet);
 router.get('/delete/:id', indexController.performDelete);
 router.post('/login', indexController.processLoginPage);
-
+router.get('/login', indexController.displayLoginPage);
 module.exports = router;

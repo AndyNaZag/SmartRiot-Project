@@ -3,7 +3,6 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
-
 let cors = require('cors');
 
 
@@ -52,20 +51,6 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use(cors());
 
-
-// initialize passport
-//app.use(passport.initialize());
-//app.use(passport.session());
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    next(createError(404));
-});
-
-
 //setup express session
 app.use(session({
     secret: "SomeSecret",
@@ -73,13 +58,24 @@ app.use(session({
     resave: false
 }));
 
+app.use(flash());
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+let userModel = require('../models/user');
+let User = userModel.User;
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 
 // implement a User Authentication Strategy
-//passport.use(User.createStrategy());
+passport.use(User.createStrategy());
 
 // serialize and deserialize the User info
-//passport.serializeUser(User.serializeUser());
-//passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
 let jwtOptions = {};
@@ -96,7 +92,14 @@ let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
         });
 });
 
-//passport.use(strategy);
+passport.use(strategy);
+
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    next(createError(404));
+});
+
 
 // error handler
 app.use(function(err, req, res, next) {
