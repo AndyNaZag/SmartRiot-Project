@@ -1,61 +1,47 @@
-module.exports = function() {
-
-    return {
-        "pets": [{
-            id: 1,
-            name: "Tommy",
-            category: "Dog",
-            description: "Labrador",
-            age: 27
-        }, {
-            id: 2,
-            name: "Muriel",
-            category: "Cat",
-            description: "Sphinx",
-            age: 8
-        }, {
-            id: 3,
-            name: "Jack",
-            category: "Dog",
-            description: "German-Shepherd",
-            age: 19
-        }, {
-            id: 4,
-            name: "Leo",
-            category: "Dog",
-            description: "Bulldog",
-            age: 3
-        }, {
-            id: 5,
-            name: "Sylvester",
-            category: "Cat",
-            description: "Persian",
-            age: 7
-        }, {
-            id: 6,
-            name: "Tweety",
-            category: "Bird",
-            description: "Parrot",
-            age: 6
-        }, {
-            id: 7,
-            name: "Donald",
-            category: "Bird",
-            description: "Duck",
-            age: 9
-        }, {
-            id: 8,
-            name: "Pluto",
-            category: "Dog",
-            description: "Common",
-            age: 5
-        }, {
-            id: 9,
-            name: "Jasper",
-            category: "Bird",
-            description: "Sparrow",
-            age: 12
-        }],
-        favorites: []
-    }
+module.exports = function () {
+  return {
+    "pet-list": [
+      {
+        _id: 1,
+        name: "Matt",
+        category: "Dog",
+        breed: "Labrador",
+        age: "2",
+        vaccine: true,
+        description: "playful",
+        price: 10.95,
+      },
+      {
+        _id: 2,
+        name: "Kaidoh",
+        category: "Dog",
+        breed: "Labrador",
+        age: "2",
+        vaccine: true,
+        description: "playful",
+        price: 10.95,
+      },
+      {
+        _id: 3,
+        name: "Tina",
+        category: "Cat",
+        breed: "Labrador",
+        age: "2",
+        vaccine: true,
+        description: "playful",
+        price: 10.95,
+      },
+      {
+        _id: 4,
+        name: "Tommy",
+        category: "Dog",
+        breed: "Labrador",
+        age: "2",
+        vaccine: true,
+        description: "playful",
+        price: 10.95,
+      },
+    ],
+    orders: []
+  }
 }

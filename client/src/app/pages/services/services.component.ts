@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BasePageComponent } from '../../partials/base-page/base-page.component';
 import { ActivatedRoute } from '@angular/router';
-import { BasePageComponent } from 'src/app/partials/base-page/base-page.component';
 
 @Component({
   selector: 'app-services',
@@ -9,11 +9,11 @@ import { BasePageComponent } from 'src/app/partials/base-page/base-page.componen
 })
 export class ServicesComponent extends BasePageComponent implements OnInit {
 
-  constructor(route: ActivatedRoute) { 
+  constructor(route: ActivatedRoute) {
     super(route);
-  }
+   }
 
-  override ngOnInit(): void {
+  ngOnInit(): void {
   }
 
 }

@@ -1,25 +1,36 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AboutanimalsComponent } from './pages/aboutanimals/aboutanimals.component';
-import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { Routes, RouterModule } from '@angular/router';
+
 import { HomeComponent } from './pages/home/home.component';
-import { AdoptComponent } from './pages/adopt/adopt.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ProductsComponent } from './pages/products/products.component';
 import { ServicesComponent } from './pages/services/services.component';
-import { AddorEditComponent } from './pages/addor-edit/addor-edit.component';
+import { PetStoreComponent } from './pet-store/pet-store.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { AdoptionlistDetailComponent } from './pet-store/adoptionlist-detail/adoptionlist-detail.component';
+import { CheckoutComponent } from './pet-store/checkout/checkout.component';
+import { StoreFirstGuard } from './guards/storeFirst.guard';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent, data: {title: 'Home'}},
-  {path: 'aboutanimals', component: AboutanimalsComponent, data: {title: 'About Animals'}},
-  {path: 'adopt', component: AdoptComponent, data: {title: 'Adopt'}},
-  {path: 'services', component: ServicesComponent, data: {title: 'Our Services'}},
-  {path: 'aboutus', component: AboutUsComponent, data: {title: 'About Us'}},
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'adopt/:mode/:id', component: AddorEditComponent, data: {title: 'Edit Pet'}},
-  {path: 'adopt/:mode', component: AddorEditComponent, data: {title: 'Add Pet'}}
+ {path: 'home', component: HomeComponent, data: {title: 'Home'}},
+ {path: 'login', data: {title: 'Login'}, redirectTo: '/admin/auth', pathMatch: 'full'},
+
+ {path: 'about', component: AboutComponent, data: {title: 'About'}},
+ {path: 'products', component: ProductsComponent, data: {title: 'Products'}},
+ {path: 'services', component: ServicesComponent, data: {title: 'Services'}},
+ {path: 'contact', component: ContactComponent, data: {title: 'Contact'}},
+
+ {path: 'pet-list', component: PetStoreComponent, data: { title: 'Pet Store'}, canActivate: [StoreFirstGuard]},
+ {path: 'adoptionlist', component: AdoptionlistDetailComponent, data: { title: 'Shopping Adoptionlist'}, canActivate: [StoreFirstGuard]},
+ {path: 'checkout', component: CheckoutComponent, data: { title: 'Checkout'}, canActivate: [StoreFirstGuard]},
+ {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
+ {path: '', redirectTo: '/home', pathMatch: 'full'},
+ {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [ StoreFirstGuard]
 })
 export class AppRoutingModule { }

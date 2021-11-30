@@ -1,0 +1,16 @@
+<div class="float-right">
+    <small>
+      <button class="btn btn-sm btn-light" type="button"
+        [disabled]='adoptionlist.itemCount == 0' (click)='viewAdoptionlist()'>
+        Your Adoption list:
+      </button>
+      
+      <span *ngIf='adoptionlist.itemCount > 0'>
+        {{ adoptionlist.itemCount }} item(s)
+        {{ adoptionlist.adoptionlistPrice | currency: 'USD': 'symbol':'2.2-2' }}
+      </span>
+      <span *ngIf='adoptionlist.itemCount == 0'>
+        (empty)
+      </span>
+    </small>
+  </div>

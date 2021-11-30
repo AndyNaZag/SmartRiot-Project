@@ -7,11 +7,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./base-page.component.css']
 })
 export class BasePageComponent implements OnInit {
-  title!: string;
-  constructor(private route: ActivatedRoute) {}
+  title: string;
+
+  constructor(private route: ActivatedRoute){  }
 
   ngOnInit(): void {
-    this.title = this.route.snapshot.data['title'];
+    this.title = this.route.snapshot.data.title;
   }
 
 }

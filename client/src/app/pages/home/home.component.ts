@@ -11,9 +11,9 @@ export class HomeComponent extends BasePageComponent implements OnInit {
 
   constructor(route: ActivatedRoute) {
     super(route);
-  }
+   }
 
-  override ngOnInit(): void {
+  ngOnInit(): void {
   }
 
 }

@@ -13,11 +13,15 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
 }
+.linkpet {
+  text-decoration: none;
+  background-color: transparent;
+}
 
 .cover {
   background-size: 100vw;
   height: 100vh;
-  background-image: url(../../../assets/images/amordeperro.jpg);
+  background-image: url("../../../assets/images/amordeperro.jpg");
   max-width: 100%;
   background-repeat: no-repeat;
 }
