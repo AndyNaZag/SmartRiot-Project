@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Pet } from '../model/pet.model';
 import { PetRepository } from './../model/pet.repository';
 import { Adoptionlist } from '../model/adoptionlist.model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pet-store',
@@ -17,7 +17,16 @@ export class PetStoreComponent
 
   constructor(private repository: PetRepository,
               private adoptionlist: Adoptionlist,
-              private router: Router) { }
+              private router: Router,
+              private activatedRoute: ActivatedRoute) { }
+
+  ngOnInit()
+  {
+    this.activatedRoute.queryParams.subscribe(params => {
+    const category = params["category"];
+    this.selectedCategory = category;
+    })
+  }
 
   get pets(): Pet[]
   {

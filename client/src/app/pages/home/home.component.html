@@ -17,50 +17,49 @@
       <div class="divider">_______</div>
       <h3 class="txt2">Hopeful Pets is a wonderful community with a lot of diversity. <br> We accept all friends no matter what, so each person can find their match! </h3>
       <div class="container-pets" data-aos="fade-up" data-aos-duration="2000">
-          <div class="card-container">
-            <div class="txt-card">
-                <h2 class="t2">DOGS</h2>
-            </div>
-            <img class="desvanecer" src="../../../assets/images/perritu.png" />
-            
-          </div>
-    
-          <div class="card-container">
-            <div class="txt-card">
-                <h2 class="t2">CATS</h2>
-            </div>
-            <img class="desvanecer" src="../../../assets/images/gatitu.png" />
-          </div>
-    
-          <div class="card-container">
-            <div class="txt-card">
-                <h2 class="t2">BIRDS</h2>
-            </div>
-            <img class="desvanecer" src="../../../assets/images/birds2.png" />
-          </div>    
-      </div>
-    
-      <div class="container-pets" data-aos="fade-up" data-aos-duration="2000">
-        <div class="card-container">
+        <div class="card-container" (click)='navigateToDogs()'>
           <div class="txt-card">
-              <h2 class="t2">HAMSTERS</h2>
+              <h2 class="t2">DOGS</h2>
           </div>
-          <img class="desvanecer" src="../../../assets/images/hamsters.png" />
+          <img class="desvanecer" src="../../../assets/images/perritu.png" />            
         </div>
-    
-        <div class="card-container">
+  
+        <div class="card-container" (click)='navigateToCats()'>
           <div class="txt-card">
-              <h2 class="t2">BUNNIES</h2>
+              <h2 class="t2">CATS</h2>
           </div>
-          <img class="desvanecer" src="../../../assets/images/bunny2.png" />
+          <img class="desvanecer" src="../../../assets/images/gatitu.png" />
         </div>
-    
-        <div class="card-container">
+  
+        <div class="card-container" (click)='navigateToBirds()'>
           <div class="txt-card">
-              <h2 class="t2">LIZARDS</h2>
+              <h2 class="t2">BIRDS</h2>
           </div>
-          <img class="desvanecer" src="../../../assets/images/Lizards.png" />
+          <img class="desvanecer" src="../../../assets/images/birds2.png" />
         </div>    
+    </div>
+  
+    <div class="container-pets" (click)='navigateToHamsters()'>
+      <div class="card-container">
+        <div class="txt-card">
+            <h2 class="t2">HAMSTERS</h2>
+        </div>
+        <img class="desvanecer" src="../../../assets/images/hamsters.png" />
+      </div>
+  
+      <div class="card-container" (click)='navigateToBunnies()'>
+        <div class="txt-card">
+            <h2 class="t2">BUNNIES</h2>
+        </div>
+        <img class="desvanecer" src="../../../assets/images/bunny2.png" />
+      </div>
+  
+      <div class="card-container" (click)='navigateToLizards()'>
+        <div class="txt-card">
+            <h2 class="t2">LIZARDS</h2>
+        </div>
+        <img class="desvanecer" src="../../../assets/images/Lizards.png" />
+      </div>      
     </div>
     </section>
     
