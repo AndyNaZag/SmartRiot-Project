@@ -1,6 +1,6 @@
 <!-- Checkbox -->
 <div class="form-check">
-  <label class="form-check-label">
+    <label class="form-check-label">
     <input type="checkbox" class="form-check-input"
     [(ngModel)]='includeApproved'>
     Display Adoptions Done
@@ -8,41 +8,43 @@
 </div>
 
 <table class="table table-sm">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Postal Code</th>
-      <th colspan="2">Pets</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngIf='getOrders().length == 0'>
-      <td colspan="5">There are no orders</td>
-    </tr>
-    <ng-template ngFor let-o [ngForOf]='getOrders()'>
-      <tr>
-        <td>{{ o.name }}</td>
-        <td>{{ o.postalCode }}</td>
-        <th>Name</th>
-        <th>Category</th>
-        <td>
-          <button class="btn btn-warning m-1" (click)='markApproved(o)'>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Postal Code</th>
+            <th>Order ID</th>
+            <th colspan="2">Pets</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf='getOrders().length == 0'>
+            <td colspan="5">There are no orders</td>
+        </tr>
+        <ng-template ngFor let-o [ngForOf]='getOrders()'>
+            <tr>
+                <td>{{ o.name }}</td>
+                <td>{{ o.postalCode }}</td>
+                <td>{{ o.orderid }}</td>
+                <th>Name</th>
+                <th>Category</th>
+                <td>
+                    <button class="btn btn-warning m-1" (click)='markApproved(o)'>
              {{ o.approved ? "Approved" : "Approve" }}
           </button>
-        </td>
-        <td>
-          <button class="btn btn-danger" (click)='delete(o._id)'>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)='delete(o._id)'>
              Reject
           </button>
-        </td>
-      </tr>
-      <tr *ngFor='let line of o.adoptionlist.lines'>
-        <td colspan="2"></td>
-        <td>{{ line.pet.name }}</td>
-        <td>{{ line.pet.category }}</td>
-      </tr>
-    </ng-template>
-  </tbody>
+                </td>
+            </tr>
+            <tr *ngFor='let line of o.adoptionlist.lines'>
+                <td colspan="3"></td>
+                <td>{{ line.pet.name }}</td>
+                <td>{{ line.pet.category }}</td>
+            </tr>
+        </ng-template>
+    </tbody>
 </table>

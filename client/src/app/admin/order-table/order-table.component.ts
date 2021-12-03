@@ -9,7 +9,7 @@ import { OrderRepository } from 'src/app/model/order.repository';
 export class OrderTableComponent implements OnInit
 {
   includeApproved = false;
-
+  
   constructor(private repository: OrderRepository,
               private router: Router) { }
 
@@ -17,7 +17,7 @@ export class OrderTableComponent implements OnInit
   }
 
   getOrders(): Order[]
-  {
+  { 
     return this.repository.getOrders().filter(o => this.includeApproved || !o.approved);
   }
 

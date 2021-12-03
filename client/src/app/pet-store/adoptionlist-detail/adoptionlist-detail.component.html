@@ -1,66 +1,57 @@
 <div class="container-fluid">
     <div class="row">
-      <div class="col mt-2">
-        <h2 class="text-center">Your Adoption list</h2>
-        <table class="table table-bordered table-striped p-2">
-          <thead>
-            <tr>
-              <th>Quantity</th>
-              <th>Pet</th>
-              <th class="text-right">Price</th>
-              <th class="text-right">Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Conditional Section -->
-            <tr *ngIf='adoptionlist.lines.length == 0'>
-              <td class="text-center" colspan="4">Your Adoption list is empty</td>
-            </tr>
-            <!-- Repeating Section -->
-            <tr *ngFor='let line of adoptionlist.lines'>
-              <td>
-                <input type="number" class="form-control-sm" style="width: 5em"
-                [value]='line.quantity'
-                (change)='adoptionlist.updateQuantity(line.pet, $event.target.value)'>
-              </td>
-              <td>{{ line.pet.name }}</td>
-              <td class="text-right">
-                {{ line.pet.price | currency: 'USD': 'symbol': '2.2-2'}}
-              </td>
-              <td class="text-right">
-                {{ line.lineTotal | currency: 'USD': 'symbol': '2.2-2'}}
-              </td>
-              <td class="text-center">
-                <a class="btn btn-sm btn-danger"
-                  (click)='adoptionlist.removeLine(line.pet._id)'>
+        <div class="col mt-2">
+            <h2 class="text-center">Your Adoption list</h2>
+            <table class="table table-bordered table-striped p-2">
+                <thead>
+                    <tr>
+                        <th>Pet</th>
+                        <th>Category</th>
+                        <th class="text-right">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Conditional Section -->
+                    <tr *ngIf='adoptionlist.lines.length == 0'>
+                        <td class="text-center" colspan="4">Your Adoption list is empty</td>
+                    </tr>
+                    <!-- Repeating Section -->
+                    <tr *ngFor='let line of adoptionlist.lines'>
+
+                        <td>{{ line.pet.name }}</td>
+                        <td>{{ line.pet.category }}</td>
+                        <td class="text-right">
+                            {{ line.pet.price | currency: 'USD': 'symbol': '2.2-2'}}
+                        </td>
+                        <td class="text-center">
+                            <a class="btn btn-sm btn-danger" (click)='adoptionlist.removeLine(line.pet._id)'>
                   Remove
                 </a>
-              </td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan='3' class='text-right'>Total: </td>
-              <td class='text-right'>
-                {{ adoptionlist.adoptionlistPrice | currency: 'USD': 'symbol':'2.2-2'}}
-              </td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan='2' class='text-right'>Total: </td>
+                        <td class='text-right'>
+                            {{ adoptionlist.adoptionlistPrice | currency: 'USD': 'symbol':'2.2-2'}}
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
-  
+
     <div class="row">
-      <div class="col">
-        <div class="text-center">
-          <button class="btn btn-primary m-1" routerLink='/pet-list'>
+        <div class="col">
+            <div class="text-center">
+                <button class="btn btn-primary m-1" routerLink='/pet-list'>
             Back to Pets
           </button>
-          <button class="btn btn-secondary m-1" routerLink='/checkout'
-            [disabled]='adoptionlist.lines.length == 0'>
+                <button class="btn btn-secondary m-1" routerLink='/checkout' [disabled]='adoptionlist.lines.length == 0'>
             Continue with Adoption Process
           </button>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>

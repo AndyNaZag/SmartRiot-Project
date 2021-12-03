@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pet } from 'src/app/model/pet.model';
-import { PetInfo } from 'src/app/model/petdetails.model';
 import { PetRepository } from 'src/app/model/pet.repository';
 import { Router } from '@angular/router';
 
@@ -14,7 +13,7 @@ export class AdoptComponent implements OnInit {
   public selectedCategory = null;
   title!: string;
 
-  constructor(private route: ActivatedRoute, private repository: PetRepository, private router: Router, private petinfo: PetInfo) {
+  constructor(private route: ActivatedRoute, private repository: PetRepository, private router: Router) {
    }
 
   ngOnInit(): void {

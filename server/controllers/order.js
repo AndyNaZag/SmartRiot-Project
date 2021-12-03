@@ -9,12 +9,9 @@ let Pet = Store.Pet;
 
 module.exports.displayOrderList = (req, res, next) => {
     Order.find((err, orderList) => {
-        if(err)
-        {
+        if (err) {
             return console.error(err);
-        }
-        else
-        {
+        } else {
             res.json(orderList);
         }
     });
@@ -25,20 +22,19 @@ module.exports.processAddPage = (req, res, next) => {
     let adoptionlist = new Adoptionlist();
 
     // Serialize the Line Data
-    for(let line of req.body.adoptionlist.lines)
-    {
+    for (let line of req.body.adoptionlist.lines) {
         let pet = new Pet(
-          line.pet._id,
-          line.pet.name,
-          line.pet.category,
-          line.pet.breed,
-          line.pet.age,
-          line.pet.vaccine,
-          line.pet.description,
-          line.pet.price  
+            line.pet._id,
+            line.pet.name,
+            line.pet.category,
+            line.pet.breed,
+            line.pet.age,
+            line.pet.vaccine,
+            line.pet.description,
+            line.pet.price
         );
         let quantity = line.quantity;
-        adoptionlist.lines.push({pet, quantity});
+        adoptionlist.lines.push({ pet, quantity });
     }
     adoptionlist.itemCount = req.body.adoptionlist.itemCount;
     adoptionlist.adoptionlistPrice = req.body.adoptionlist.adoptionlistPrice;
@@ -46,27 +42,25 @@ module.exports.processAddPage = (req, res, next) => {
     // Create a new Order Object
     let newOrder = Order({
         "name": req.body.name,
+        "orderid": req.body.orderid,
         "address": req.body.address,
         "city": req.body.city,
         "province": req.body.province,
         "postalCode": req.body.postalCode,
         "country": req.body.country,
-        "shipped": req.body.shipped,
+        "approved": req.body.approved,
         "adoptionlist": adoptionlist
     });
 
     // Add new Order Object to the Database
     Order.create(newOrder, (err, Order) => {
-        if(err)
-        {
+        if (err) {
             console.log(err);
             res.end(err);
+        } else {
+            res.json({ success: true, msg: 'Successfully Added New Order' });
         }
-        else
-        {
-            res.json({success: true, msg: 'Successfully Added New Order'});
-        }
-    }); 
+    });
 }
 
 module.exports.processEditPage = (req, res, next) => {
@@ -77,20 +71,19 @@ module.exports.processEditPage = (req, res, next) => {
     let adoptionlist = new Adoptionlist();
 
     // serialize the line data
-    for(let line of req.body.adoptionlist.lines)
-    {
+    for (let line of req.body.adoptionlist.lines) {
         let pet = new Pet(
-          line.pet._id,
-          line.pet.name,
-          line.pet.category,
-          line.pet.breed,
-          line.pet.age,
-          line.pet.vaccine,
-          line.pet.description,
-          line.pet.price  
+            line.pet._id,
+            line.pet.name,
+            line.pet.category,
+            line.pet.breed,
+            line.pet.age,
+            line.pet.vaccine,
+            line.pet.description,
+            line.pet.price
         );
         let quantity = line.quantity;
-        adoptionlist.lines.push({pet, quantity});
+        adoptionlist.lines.push({ pet, quantity });
     }
     adoptionlist.itemCount = req.body.adoptionlist.itemCount;
     adoptionlist.adoptionlistPrice = req.body.adoptionlist.adoptionlistPrice;
@@ -98,25 +91,24 @@ module.exports.processEditPage = (req, res, next) => {
     // Update the Order Object
     let updatedOrder = Order({
         "_id": id,
+        "orderid": req.body.orderid,
         "name": req.body.name,
         "address": req.body.address,
         "city": req.body.city,
         "province": req.body.province,
         "postalCode": req.body.postalCode,
         "country": req.body.country,
-        "shipped": req.body.shipped,
+        "approved": req.body.approved,
         "adoptionlist": adoptionlist
     });
 
-    Order.updateOne({_id: id}, updatedOrder, (err) => {
-        if(err)
-        {
+    Order.updateOne({ _id: id }, updatedOrder, (err) => {
+        if (err) {
             console.log(err);
             res.end(err);
-        }
-        else
-        {
-            res.json({success: true, msg: 'Successfully Edited Order', order: updatedOrder});
+        } else {
+            console.log(updatedOrder);
+            res.json({ success: true, msg: 'Successfully Edited Order', order: updatedOrder });
         }
     })
 }
@@ -124,15 +116,12 @@ module.exports.processEditPage = (req, res, next) => {
 module.exports.performDelete = (req, res, next) => {
     let id = req.params.id;
 
-    Order.deleteOne({_id: id}, (err) => {
-        if(err)
-        {
+    Order.deleteOne({ _id: id }, (err) => {
+        if (err) {
             console.log(err);
             res.end(err);
-        }
-        else
-        {
-            res.json({success: true, msg: 'Successfully Deleted Order'});
+        } else {
+            res.json({ success: true, msg: 'Successfully Deleted Order' });
         }
     })
 }

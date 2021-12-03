@@ -6,11 +6,11 @@
       </button>
       
       <span *ngIf='adoptionlist.itemCount > 0'>
-        {{ adoptionlist.itemCount }} item(s)
+        {{ adoptionlist.itemCount }} pet(s)
         {{ adoptionlist.adoptionlistPrice | currency: 'USD': 'symbol':'2.2-2' }}
       </span>
       <span *ngIf='adoptionlist.itemCount == 0'>
         (empty)
       </span>
     </small>
-  </div>
+</div>

@@ -1,0 +1,14 @@
+<form #form='ngForm' novalidate (ngSubmit)='checkStatus(form)' class="m-2">
+
+    <div class="form-group">
+        <label>Order ID:</label>
+        <input class="form-control" #name='ngModel' name='orderid' [(ngModel)]='orderID' required>
+    </div>
+    <button class="btn btn-primary m-1" type="submit">Check Status</button>
+
+</form>
+
+
+<div class="container-fluid">
+    <h2>Your pet adoption request status is : {{status}}</h2>
+</div>

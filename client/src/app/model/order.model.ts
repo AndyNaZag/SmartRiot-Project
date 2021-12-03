@@ -6,6 +6,7 @@ export class Order
 {
   // tslint:disable-next-line: variable-name
   public _id: number;
+  public orderid: string;
   public name: string;
   public address: string;
   public city: string;
@@ -19,6 +20,7 @@ export class Order
   clear(): void
   {
     this._id = null;
+    this.orderid = null;
     this.name = null;
     this.address = null;
     this.city = null;

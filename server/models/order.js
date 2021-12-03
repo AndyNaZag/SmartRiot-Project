@@ -2,18 +2,17 @@ let mongoose = require('mongoose');
 
 // create order model class
 let Order = mongoose.Schema({
+    orderid: String,
     name: String,
     address: String,
     city: String,
     province: String,
     postalCode: String,
     country: String,
-    shipped: Boolean,
-    adoptionlist:
-    {
-        lines:
-        [{pet:
-            {
+    approved: Boolean,
+    adoptionlist: {
+        lines: [{
+            pet: {
                 name: String,
                 category: String,
                 breed: String,
@@ -27,8 +26,7 @@ let Order = mongoose.Schema({
         itemCount: Number,
         adoptionlistPrice: Number
     }
-},
-{
+}, {
     collection: 'orders'
 });
 
