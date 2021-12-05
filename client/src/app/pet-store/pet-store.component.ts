@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PetStoreComponent
 {
   public selectedCategory = null;
-  public petsPerPage = 4;
+  public petsPerPage = 6;
   public selectedPage = 1;
 
   constructor(private repository: PetRepository,
@@ -40,6 +40,10 @@ export class PetStoreComponent
     return this.repository.getCategories();
   }
 
+  get imagesPath(): string[]
+  {
+    return this.repository.getImagesPath();
+  }
   changeCategory(newCategory?: string): void
   {
     this.selectedCategory = newCategory;
