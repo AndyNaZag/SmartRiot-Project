@@ -1,0 +1,9 @@
+.form-check {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 20%;
+}
+
+.table {
+    margin: 20px auto;
+}

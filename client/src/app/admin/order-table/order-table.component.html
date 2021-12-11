@@ -1,11 +1,24 @@
 <!-- Checkbox -->
-<div class="form-check">
+<div class="form-check" >
     <label class="form-check-label">
-    <input type="checkbox" class="form-check-input"
-    [(ngModel)]='includeApproved'>
-    Display Adoptions Done
-  </label>
+    <input type="checkbox" class="form-check-input" [disabled]="includeRejected || all"
+    [(ngModel)]='includeApproved'>    
+    Display Adoptions Approved
+    </label>
+
+    <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" [disabled]="includeApproved || all"
+    [(ngModel)]='includeRejected'>    
+    Display Adoptions Rejected
+    </label>
+
+    <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" [disabled]="includeApproved || includeRejected"
+    [(ngModel)]='all'>    
+    Display All
+    </label>
 </div>
+
 
 <table class="table table-sm">
     <thead>
@@ -29,15 +42,15 @@
                 <td>{{ o.orderid }}</td>
                 <th>Name</th>
                 <th>Category</th>
-                <td>
-                    <button class="btn btn-warning m-1" (click)='markApproved(o)'>
-             {{ o.approved ? "Approved" : "Approve" }}
-          </button>
+                <td>                    
+                        <button id="ap" class="btn btn-warning m-1" (click)='markApproved(o)' [disabled]="o.rejected || o.approved">
+                            {{ o.approved ? "Approved"  : "Approve" }}
+                        </button>          
                 </td>
                 <td>
-                    <button class="btn btn-danger" (click)='delete(o._id)'>
-             Reject
-          </button>
+                    <button id="rj" class="btn btn-danger" (click)='markRejected(o)' [disabled]="o.rejected || o.approved">
+                        {{ o.rejected ? "Rejected"  : "Reject" }}
+                    </button>
                 </td>
             </tr>
             <tr *ngFor='let line of o.adoptionlist.lines'>

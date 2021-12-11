@@ -14,6 +14,7 @@ export class Order
   public postalCode: string;
   public country: string;
   public approved = false;
+  public rejected = false;
 
   constructor(public adoptionlist: Adoptionlist) {}
 
@@ -28,6 +29,7 @@ export class Order
     this.postalCode = null;
     this.country = null;
     this.approved = false;
+    this.rejected = false;
     this.adoptionlist.clear();
   }
 }

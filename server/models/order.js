@@ -10,6 +10,7 @@ let Order = mongoose.Schema({
     postalCode: String,
     country: String,
     approved: Boolean,
+    rejected: Boolean,
     adoptionlist: {
         lines: [{
             pet: {
