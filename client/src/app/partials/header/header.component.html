@@ -6,13 +6,13 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
 </head>
 
 <body>
+    
     <header>
         <!--navigation bar with logo and other pages link buttons-->
-        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/"> <img src="../../../assets/images/Logo.png" alt="Logo" width="30px"> Smart Riots</a>
                 <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarNav">
@@ -22,9 +22,9 @@
                             <a class="nav-link" routerLink="/home">Home</a>
                         </li>
 
-                        <li class="nav-item" [routerLinkActive]="['active']">
+                        <!--<li class="nav-item" [routerLinkActive]="['active']">
                             <a class="nav-link" routerLink="/about">About Animals</a>
-                        </li>
+                        </li>-->
 
                         <li class="nav-item" [routerLinkActive]="['active']">
                             <a class="nav-link" routerLink="/pet-list"><i class="fas fa-pet"></i>Pets</a>
@@ -35,7 +35,7 @@
                         </li>
 
                         <li class="nav-item" [routerLinkActive]="['active']">
-                            <a class="nav-link" routerLink="/services">Our Services</a>
+                            <a class="nav-link" routerLink="/services">Pet Services</a>
                         </li>
 
                         <li class="nav-item" [routerLinkActive]="['active']">

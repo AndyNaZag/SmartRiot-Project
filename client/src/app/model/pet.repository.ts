@@ -8,6 +8,8 @@ export class PetRepository
 {
   private pets: Pet[] = [];
   private categories: string[] = [];
+  private imagesPath: string[] = ["../../../assets/images/perritu.png", "../../../assets/images/gatitu.png", "../../../assets/images/birds2.png"
+, "../../../assets/images/hamsters.png", "../../../assets/images/bunny2.png", "../../../assets/images/Lizards.png"];
 
   constructor(private dataSource: RestDataSource)
   {
@@ -16,6 +18,11 @@ export class PetRepository
       this.categories = data.map(p => p.category)
         .filter((c, index, array) => array.indexOf(c) === index).sort();
     });
+  }
+
+  getImagesPath (): string[]
+  {
+    return this.imagesPath;
   }
 
   getPets(category: string = null): Pet[]
