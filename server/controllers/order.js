@@ -49,6 +49,7 @@ module.exports.processAddPage = (req, res, next) => {
         "postalCode": req.body.postalCode,
         "country": req.body.country,
         "approved": req.body.approved,
+        "rejected": req.body.rejected,
         "adoptionlist": adoptionlist
     });
 
@@ -99,6 +100,7 @@ module.exports.processEditPage = (req, res, next) => {
         "postalCode": req.body.postalCode,
         "country": req.body.country,
         "approved": req.body.approved,
+        "rejected": req.body.rejected,
         "adoptionlist": adoptionlist
     });
 

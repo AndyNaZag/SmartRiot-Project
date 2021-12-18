@@ -39,11 +39,13 @@ export class OrderstatusComponent implements OnInit {
         //}
         if (this.test[0].approved) {
           this.status = "Approved";
+        } else if (this.test[0].rejected) {
+          this.status = "Rejected";
         } else {
           this.status = "Pending";
         }
       } else {
-        this.status = "Either your request is rejected or order id does not exist";
+        this.status = "Your request does not exist";
       }
     }
   }

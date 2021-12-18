@@ -5,10 +5,13 @@ import { OrderRepository } from 'src/app/model/order.repository';
 
 @Component({
   templateUrl: './order-table.component.html',
+  styleUrls: ['./order-table.component.css']
 })
 export class OrderTableComponent implements OnInit
 {
   includeApproved = false;
+  includeRejected = false;
+  all = false;
   
   constructor(private repository: OrderRepository,
               private router: Router) { }
@@ -18,17 +21,31 @@ export class OrderTableComponent implements OnInit
 
   getOrders(): Order[]
   { 
-    return this.repository.getOrders().filter(o => this.includeApproved || !o.approved);
+    if (this.includeApproved) {return this.repository.getOrders().filter(o => (o.approved));}
+    else if (this.includeRejected) {return this.repository.getOrders().filter(o => (o.rejected));}
+    else if (this.all) {return this.repository.getOrders().filter(o => (!o.approved || !o.rejected));}
+    else {return this.repository.getOrders().filter(o => (!o.approved && !o.rejected));}
+  }
+  getRejectedOrders(): Order[]
+  { 
+    return this.repository.getOrders().filter(o => (this.includeRejected));
   }
 
   markApproved(order: Order): void
   {
-    order.approved = (order.approved) ? false : true;
+    order.approved = (order.approved) ? false : true;    
+    this.repository.updateOrder(order);
+    this.router.navigateByUrl('/admin/main/orders');    
+  }
+
+  markRejected(order: Order): void
+  {
+    order.rejected = (order.rejected) ? false : true;   
     this.repository.updateOrder(order);
     this.router.navigateByUrl('/admin/main/orders');
   }
 
-  delete(id: number): void
+  /*delete(id: number): void
   {
     if (confirm('Are you sure?'))
     {
@@ -38,6 +55,6 @@ export class OrderTableComponent implements OnInit
     {
       this.router.navigateByUrl('/admin/main/orders');
     }
-  }
+  }*/
 
 }

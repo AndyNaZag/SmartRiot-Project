@@ -37,7 +37,7 @@ export class OrderRepository
   updateOrder(updatedOrder: Order): void
   {
     this.dataSource.updateOrder(updatedOrder).subscribe(order => {
-      this.orders.splice(this.orders.findIndex(o => o._id === order._id), 1, order);
+      this.orders.splice(this.orders.findIndex(o => o._id === order._id), 1, order);      
     });
   }
 
