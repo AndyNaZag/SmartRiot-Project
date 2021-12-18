@@ -9,7 +9,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { User } from './user.model';
 
-const PROTOCOL = 'http';
+const PROTOCOL = 'https';
 const PORT = 3500;
 
 @Injectable()
@@ -32,8 +32,8 @@ export class RestDataSource
               private jwtService: JwtHelperService)
   {
     this.user = new User();
-    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
-    //this.baseUrl = `https://comp229-f2020-week10.herokuapp.com/api/`;
+    //this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+    this.baseUrl = `https://smart-riot.herokuapp.com/api/`;
   }
 
   getPets(): Observable<Pet[]>
