@@ -611,7 +611,7 @@ class RestDataSource {
         };
         this.user = new _user_model__WEBPACK_IMPORTED_MODULE_2__["User"]();
         //this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
-        this.baseUrl = `https://smart-riot.herokuapp.com/api/`;
+        this.baseUrl = `https://smart-riot-project.herokuapp.com//api/`;
     }
     getPets() {
         return this.http.get(this.baseUrl + 'pet-list');
