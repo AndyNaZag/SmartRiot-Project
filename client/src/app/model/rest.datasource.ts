@@ -33,7 +33,7 @@ export class RestDataSource
   {
     this.user = new User();
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
-    //this.baseUrl = `https://comp229-f2020-week10.herokuapp.com/api/`;
+    //this.baseUrl = `https://sr-petstore.herokuapp.com/api/`;    
   }
 
   getPets(): Observable<Pet[]>
